@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const AddCategory = ({ updateCategories, categories }) => {
 
@@ -10,8 +11,13 @@ const AddCategory = ({ updateCategories, categories }) => {
 
     const handleSubmit = ( e ) => {
         e.preventDefault();
-        updateCategories([ ...categories, inputValue]);
-        updateInputValue('');
+
+        if( inputValue.length > 0 ) {
+            updateCategories([ inputValue, ...categories ]);
+            //sin traer categories => updateCategories( array => [ ...array, inputValue ] );
+            // en array se toma la referencia directamente en donde se envíe la información(categories en el sitio)
+            updateInputValue('');
+        }
     };
 
     return (
@@ -30,5 +36,10 @@ const AddCategory = ({ updateCategories, categories }) => {
     )
 }
 
+
+AddCategory.propTypes = {
+    updateCategories: PropTypes.func.isRequired,
+    categories: PropTypes.array.isRequired
+};
 
 export default AddCategory;

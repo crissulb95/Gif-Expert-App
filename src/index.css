@@ -4,10 +4,46 @@
 
 body{
     padding: 60px;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 input{
     color: grey;
     font-size: 1.3rem;
     width: 100%;
+}
+
+.card-grid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card{
+    border: 1px solid grey;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    justify-content: flex-start;
+    margin: 10px;
+    max-width: 300px;
+    text-align: center;
+    transition: .25s all linear;
+}   
+
+.card:hover{
+    scale: 1.1;
+    box-shadow: 1px 1px 5px 1px grey;
+}
+
+.card img{
+    margin: 10px auto;
+    width: 80%;
+}
+
+.card h3{
+    margin: 10px auto;
+    padding: 10px;
 }
